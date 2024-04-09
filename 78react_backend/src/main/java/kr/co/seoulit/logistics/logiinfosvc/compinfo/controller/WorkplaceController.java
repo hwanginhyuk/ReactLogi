@@ -33,25 +33,8 @@ public class WorkplaceController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
 
-//	@RequestMapping(value = "/workplace/list", method = RequestMethod.GET)
-//	public ModelMap searchWorkplaceList(HttpServletRequest request, HttpServletResponse response) {
-//		String companyCode = request.getParameter("companyCode");
-//		map = new ModelMap();
-//		ArrayList<WorkplaceTO> workplaceList = null;
-//		try {
-//			workplaceList = compInfoService.getWorkplaceList(companyCode);
-//
-//			map.put("gridRowJson", workplaceList);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
-	/*은비 수정*/
+
+	// 🏭 사업장 - 조회
 	@RequestMapping(value = "/workplace/list", method = RequestMethod.GET)
 	public ModelMap searchWorkplaceList(@RequestParam("companyCode") String companyCode) {
 		map = new ModelMap();
@@ -69,6 +52,8 @@ public class WorkplaceController {
 		}
 		return map;
 	}
+
+	// 🏭 사업장 - batchList
 	@RequestMapping(value = "/workplace/batch", method = RequestMethod.POST)
 	public ModelMap batchListProcess(@RequestBody HashMap<String,ArrayList<WorkplaceTO>> batchList) {
 		map = new ModelMap();

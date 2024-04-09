@@ -33,29 +33,7 @@ public class CustomerController {
 	// GSON 라이브러리
 	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 JSON 변환
 
-	/*은비 수정*/
-//	@RequestMapping(value = "/customer/list", method=RequestMethod.GET)
-//	public ModelMap searchCustomerList(@RequestParam("searchCondition") String searchCondition,
-//									   @RequestParam("companyCode") String companyCode,
-//									   @RequestParam("workplaceCode") String workplaceCode,
-//									   @RequestParam("itemGroupCode") String itemGroupCode) {
-//
-//		System.out.println("안돼?"+searchCondition);
-//		map = new ModelMap();
-//		ArrayList<CustomerTO> customerList = null;
-//		try {
-//			customerList = compInfoService.getCustomerList(searchCondition, companyCode, workplaceCode,itemGroupCode);
-//
-//			map.put("gridRowJson", customerList);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공!");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
+	// 🚩 거래처정보 - 조회
 	@RequestMapping(value = "/customer/list", method=RequestMethod.GET)
 	public ModelMap searchCustomerList(HttpServletRequest request, HttpServletResponse response) {
 		String searchCondition = request.getParameter("searchCondition");
@@ -78,7 +56,7 @@ public class CustomerController {
 		return map;
 	}
 
-	/*은비 수정*/
+	// 🚩 거래처정보 - batchList
 	@RequestMapping(value = "/customer/batch", method=RequestMethod.POST)
 	public ModelMap batchListProcess(@RequestBody HashMap<String, ArrayList<CustomerTO>> batchList) {
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");

@@ -31,6 +31,7 @@ public class DepartmentController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 JSON 변환
 
+	// 🦉 부서정보 - 조회
 	@RequestMapping(value = "/department/list", method = RequestMethod.GET)
 	public ModelMap searchDepartmentList(HttpServletRequest request, HttpServletResponse response) {
 		String searchCondition = request.getParameter("searchCondition");
@@ -51,28 +52,8 @@ public class DepartmentController {
 		}
 		return map;
 	}
-//		@RequestMapping(value = "/department/list", method = RequestMethod.GET)
-//	public ModelMap searchDepartmentList(@RequestParam("searchCondition") String searchCondition,
-//										 @RequestParam("companyCode") String companyCode,
-//										 @RequestParam("workplaceCode") String workplaceCode
-//										 ) {
-//
-//		map = new ModelMap();
-//		ArrayList<DepartmentEntity> departmentList = null;
-//		try {
-//			departmentList = jpaCompInfoService.getDepartmentList(searchCondition, companyCode, workplaceCode);
-//
-//			map.put("gridRowJson", departmentList);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공!");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
 
+	// // 🦉 부서정보 - batchList
 	@RequestMapping(value = "/department/batch", method = RequestMethod.POST)
 	public ModelMap batchListProcess(@RequestBody HashMap<String,ArrayList<DepartmentTO>> batchList) {
 		map = new ModelMap();

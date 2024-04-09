@@ -24,6 +24,7 @@ public class AddressController {
 
 	ModelMap map = null;
 	
+	// 🏠 주소 - 조회
 	@RequestMapping(value = "/address/list", method = RequestMethod.GET)
 	public ModelMap searchAddressList(
 			@RequestParam("sidoName") String sidoName,

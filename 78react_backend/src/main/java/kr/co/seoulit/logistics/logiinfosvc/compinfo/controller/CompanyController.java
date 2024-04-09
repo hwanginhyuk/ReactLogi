@@ -36,39 +36,25 @@ public class CompanyController {
 	
 	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 JSON 변환
 
-//	@RequestMapping(value = "/company/list", method = RequestMethod.GET)
-//	public ModelMap searchCompanyList(HttpServletRequest request, HttpServletResponse response) {
-//		map = new ModelMap();
-//		try {
-//			ArrayList<CompanyTO> companyList  = compInfoService.getCompanyList();
-//
-//			map.put("gridRowJson", companyList);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공!");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
-@RequestMapping(value = "/company/list", method = RequestMethod.GET)
-public ModelMap searchCompanyList(HttpServletRequest request, HttpServletResponse response) {
-	map = new ModelMap();
-	try {
-		ArrayList<CompanyEntity> companyList  = jpaCompInfoService.getCompanyList();
+	// 🧑‍💼 회사정보 - 조회
+	@RequestMapping(value = "/company/list", method = RequestMethod.GET)
+		public ModelMap searchCompanyList(HttpServletRequest request, HttpServletResponse response) {
+			map = new ModelMap();
+			try {
+				ArrayList<CompanyEntity> companyList  = jpaCompInfoService.getCompanyList();
 
-		map.put("gridRowJson", companyList);
-		map.put("errorCode", 1);
-		map.put("errorMsg", "성공!");
-	} catch (Exception e1) {
-		e1.printStackTrace();
-		map.put("errorCode", -1);
-		map.put("errorMsg", e1.getMessage());
+				map.put("gridRowJson", companyList);
+				map.put("errorCode", 1);
+				map.put("errorMsg", "성공!");
+			} catch (Exception e1) {
+				e1.printStackTrace();
+				map.put("errorCode", -1);
+				map.put("errorMsg", e1.getMessage());
+			}
+			return map;
 	}
-	return map;
-}
 
+	// 🧑‍💼 회사정보 - batchList
 	@RequestMapping(value = "/company/batch", method = RequestMethod.POST)
 	public ModelMap batchListProcess(HttpServletRequest request, HttpServletResponse response) {
 		String batchList = request.getParameter("batchList");

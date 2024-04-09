@@ -27,6 +27,7 @@ public class ImgFileController {
 
 	private static String workspaceUploadFolderPath = "C:\\물류프로젝트\\Logistics71_spring1\\src\\main\\webapp\\ImgServer\\empPhoto";
 
+	// 😒 이미지 - 파일업로드
 	@RequestMapping(value = "/imgfileupload", method = RequestMethod.POST)
 	public ModelMap imgFileUpload(HttpServletRequest request, HttpServletResponse response) {
 

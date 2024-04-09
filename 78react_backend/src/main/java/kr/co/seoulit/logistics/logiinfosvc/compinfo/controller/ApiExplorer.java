@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/compinfo/*")
 public class ApiExplorer {
 
+	// 😶‍🌫️ 코로나현황 - 뜬금없네
 	@RequestMapping(value = "/openapi", method = RequestMethod.GET)
 	public ModelAndView apiExplorer(HttpServletRequest request, HttpServletResponse response) {
 		ModelMap map = new ModelMap();
