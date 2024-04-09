@@ -28,6 +28,7 @@ public class FinancialAccountAssociatesController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 JSON 변환
 
+	// 🪙 금융거래처 - 조회
 	@RequestMapping(value = "/financialaccountassociates/list", method = RequestMethod.GET)
 	public ModelMap searchFinancialAccountAssociatesList(HttpServletRequest request, HttpServletResponse response) {
 		String searchCondition = request.getParameter("searchCondition");
@@ -49,7 +50,7 @@ public class FinancialAccountAssociatesController {
 		return map;
 	}
 
-	/*은비 수정*/
+	// 🪙 금융거래처 - batchListProcess
 	@RequestMapping(value = "/financialaccountassociates/batch", method = RequestMethod.POST)
 	public ModelMap batchListProcess(@RequestBody HashMap<String, ArrayList<FinancialAccountAssociatesTO>> batchList) {
 		System.out.println(batchList);

@@ -30,6 +30,7 @@ public class SendEmailController {
 
    private Multipart multipart;
 
+   // 🚩 견적서 이메일전송 - smtp이용
    @RequestMapping(value="/reportemail",method=RequestMethod.GET)
    public ModelAndView sendReportEmail(HttpServletRequest request, HttpServletResponse response) {
 
@@ -37,10 +38,10 @@ public class SendEmailController {
       String savePath = "C:\\물류프로젝트\\Logistics71_SpringBoot\\src\\main\\webapp\\resources\\iReportForm";
       
       String host = "smtp.gmail.com";
-      final String user = "shoolove36";
-      final String password = "wjddml4591@@";
+      final String user = "본인아이디";
+      final String password = "본인패스워드";
 
-      String to = "shoolove36@naver.com";
+      String to = "주소@사용할이메일.com";
 
       // Get the session object
       Properties props = new Properties();

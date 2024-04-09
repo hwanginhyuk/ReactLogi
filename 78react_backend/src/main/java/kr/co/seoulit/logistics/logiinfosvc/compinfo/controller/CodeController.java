@@ -38,7 +38,7 @@ public class CodeController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
 
-	/*은비 수정*/
+	// 🍾 코드 - 코드상세조회
 	@RequestMapping(value = "/codedetail/list", method = RequestMethod.GET)
 	public ModelMap findCodeDetailList(@RequestParam("divisionCodeNo") String CodeDetail) { //RequestParam(divisionCode) => RequestParam(divisionCodeNo) 변경
 		System.out.println("findCodeDetailList메서드");
@@ -57,24 +57,8 @@ public class CodeController {
 		}
 		return map;
 	}
-//   @RequestMapping(value = "/codedetail/list", method = RequestMethod.GET)
-//   public ModelMap findCodeDetailList( HttpServletRequest request, HttpServletResponse response) {
-//      String CodeDetail  = request.getParameter("divisionCodeNo");
-//      map = new ModelMap();
-//      try {
-//         ArrayList<CodeDetailTO> codeLists = compInfoService.getCodeDetailList(CodeDetail);
-//
-//         map.put("codeList", codeLists);
-//         map.put("errorCode", 1);
-//         map.put("errorMsg", "성공");
-//      } catch (Exception e1) {
-//         e1.printStackTrace();
-//         map.put("errorCode", -1);
-//         map.put("errorMsg", e1.getMessage());
-//      }
-//      return map;
-//   }
-
+	
+	// 🍾 코드 - 코드등록
 	@RequestMapping(value = "/codeInfo", method = RequestMethod.POST)
 	public ModelMap addCodeInFormation(HttpServletRequest request, HttpServletResponse response) {
 
@@ -100,6 +84,7 @@ public class CodeController {
 		return map;
 	}
 
+	// 🍾 코드 - 코드조회
 	@RequestMapping(value = "/code/list", method = RequestMethod.GET)
 	public ModelMap findCodeList(HttpServletRequest request, HttpServletResponse response) {
 		map = new ModelMap();
@@ -117,6 +102,7 @@ public class CodeController {
 		return map;
 	}
 
+	// 🍾 코드 - 코드상세조회
 	@RequestMapping(value = "/codedetail2/list", method = RequestMethod.POST)
 	public ModelMap findDetailCodeList(HttpServletRequest request, HttpServletResponse response) {
 
@@ -137,25 +123,7 @@ public class CodeController {
 		}
 		return map;
 	}
-
-//	@RequestMapping(value = "/code/duplication", method = RequestMethod.GET)
-//	public ModelMap checkCodeDuplication(HttpServletRequest request, HttpServletResponse response) {
-//		String divisionCode = request.getParameter("divisionCode");
-//		String newDetailCode = request.getParameter("newCode");
-//		map = new ModelMap();
-//		try {
-//			Boolean flag = compInfoService.checkCodeDuplication(divisionCode, newDetailCode);
-//
-//			map.put("result", flag);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
+	
 
 	@RequestMapping(value = "/code/batch", method = RequestMethod.POST)
 	public ModelMap batchListProcess(@RequestBody HashMap<String, ArrayList<CodeTO>> batchList) {
@@ -216,7 +184,7 @@ public class CodeController {
 		return map;
 	}
 
-	//창고 위도 경도 가져오기
+	// 🍾 창고 - 위도, 경도 가져오기
 	@RequestMapping(value = "/code/latlng", method = RequestMethod.GET)
 	public ModelMap findLatLngList(HttpServletRequest request, HttpServletResponse response) {
 
@@ -238,7 +206,7 @@ public class CodeController {
 		return map;
 	}
 
-	//이미지 띄우기
+	// 🍾 상품 - 이미지띄우기
 	@RequestMapping(value = "/code/itemimage", method = RequestMethod.GET)
 	public ModelMap findDetailImageList(HttpServletRequest request, HttpServletResponse response) {
 

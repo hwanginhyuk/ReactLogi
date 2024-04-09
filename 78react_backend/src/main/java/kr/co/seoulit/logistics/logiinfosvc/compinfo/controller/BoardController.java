@@ -34,7 +34,8 @@ public class BoardController {
 
 	private MultipartFile reportFile;
 	ModelMap map=null;
-	
+
+	// 🖼️ 게시판 - 조회
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	public ModelMap selectBoardList(HttpServletRequest request, HttpServletResponse response) {
 		map = new ModelMap();
@@ -68,8 +69,8 @@ public class BoardController {
 		}
 		return map;
 	}
-	
-	// Detail
+
+	// 🖼️ 게시판 - 상세조회
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
 	public ModelMap selectBoardDetail(HttpServletRequest request, HttpServletResponse response) {
 
@@ -100,8 +101,8 @@ public class BoardController {
 		}
 		return map;
 	}
-	
-	// delete
+
+	// 🖼️ 게시판 - 삭제
 	@RequestMapping(value = "/board", method = RequestMethod.DELETE)
 	public ModelMap deleteBoard(HttpServletRequest request, HttpServletResponse response) {
 
@@ -122,8 +123,8 @@ public class BoardController {
 		}
 		return map;
 	}
-	
-	// register
+
+	// 🖼️ 게시판 - 등록
 	@RequestMapping(value = "/board", method = RequestMethod.POST)
 	public ModelMap registerBoard(HttpServletRequest request, HttpServletResponse response) {
 
@@ -174,8 +175,8 @@ public class BoardController {
 		}
 		return map;
 	}
-	
-	//download
+
+	// 🖼️ 게시판 - 다운로드
 	@RequestMapping(value="/board/download" ,method=RequestMethod.GET)
 	public ModelMap downloadFile(HttpServletRequest request, HttpServletResponse response){
 		map = new ModelMap();
