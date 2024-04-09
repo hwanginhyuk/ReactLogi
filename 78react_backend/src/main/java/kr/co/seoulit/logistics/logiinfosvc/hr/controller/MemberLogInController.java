@@ -25,6 +25,7 @@ public class MemberLogInController {
 	
 	ModelMap map = null;
 
+    // 🍾 로그인
 	@RequestMapping(value="/login", method=RequestMethod.GET)
     public ModelMap LogInCheck(HttpServletRequest request, HttpServletResponse response) {
       //  String viewName = null;

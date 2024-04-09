@@ -29,7 +29,8 @@ public class MenuController {
 	ModelMap map = null;
 	
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
-	
+
+	// 🍾 메뉴 권한
 	@RequestMapping(value="/menu/authority", method=RequestMethod.POST)
 	public ModelMap insertMenuAuthority(HttpServletRequest request, HttpServletResponse response) {
 		String authorityGroupCode = request.getParameter("authorityGroupCode");
@@ -49,7 +50,8 @@ public class MenuController {
 		}
 		return map;
 	}
-	
+
+	// 🍾 로그인
 	@RequestMapping(value="/menu/authority", method=RequestMethod.GET)
 	public ModelMap getMenuAuthority(HttpServletRequest request, HttpServletResponse response) {
 		String authorityGroupCode = request.getParameter("authorityGroupCode");

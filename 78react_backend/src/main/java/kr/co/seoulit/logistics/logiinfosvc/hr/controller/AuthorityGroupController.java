@@ -31,6 +31,7 @@ public class AuthorityGroupController {
 	
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
 	
+	// 🥊 권한관리 - 유저리스트 조회
 	@RequestMapping(value="/authoritygroup/user", method = RequestMethod.GET)
 	public ModelMap getUserAuthorityGroup(HttpServletRequest request, HttpServletResponse response) {
 		String empCode = request.getParameter("empCode");
@@ -48,7 +49,8 @@ public class AuthorityGroupController {
 		}
 		return map;
 	}
-	
+
+	// 🥊 권한관리 - 권한그룹
 	@RequestMapping(value="/authoritygroup", method = RequestMethod.GET)
 	public ModelMap getAuthorityGroup(HttpServletRequest request, HttpServletResponse response) {
 		map = new ModelMap();
@@ -65,7 +67,8 @@ public class AuthorityGroupController {
 		}
 		return map;
 	}
-	
+
+	// 🥊 권한관리 - 사원그룹
 	@RequestMapping(value="/employeeauthoritygroup", method = RequestMethod.POST)
 	public ModelMap insertEmployeeAuthorityGroup(HttpServletRequest request, HttpServletResponse response) {
 		String empCode = request.getParameter("empCode");

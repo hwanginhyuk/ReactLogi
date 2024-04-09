@@ -13,6 +13,7 @@ public class ShowErrorPageController {
 	ModelAndView mav = null;
 	ModelMap map = null;
 
+	// 😣 에러페이지 (미구현)
 	public ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) {
 
 		String viewName = "redirect:" + request.getContextPath() + "/hello3/view";
