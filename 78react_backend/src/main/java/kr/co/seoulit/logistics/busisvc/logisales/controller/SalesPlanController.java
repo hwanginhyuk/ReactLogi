@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/logi/sales/*")
 
+// 미구현
 public class SalesPlanController {
 
     @Autowired
@@ -27,6 +28,7 @@ public class SalesPlanController {
 
     private ModelMap modelMap = new ModelMap();
 
+    // 😒 판매계획 - 등록
     @RequestMapping(value="/save" , method= RequestMethod.POST)
     public ModelMap saleSave(@RequestBody Map<String, Object> params) {
         ObjectMapper mapper = new ObjectMapper();
@@ -50,7 +52,7 @@ public class SalesPlanController {
         return modelMap;
     }
 
-
+    // 😒 판매계획 - 삭제
     @RequestMapping(value="/remove", method=RequestMethod.DELETE)
     public ModelMap deleteSalesInfo(
             @RequestBody Map<String, Object> params
@@ -79,7 +81,7 @@ public class SalesPlanController {
         return modelMap;
     }
 
-
+    // 😒 판매계획 - 조회
     @RequestMapping("/searchSalesPlan")
     public ModelMap searchSalesPlanInfo(@RequestParam String startDate, @RequestParam String endDate,
                                         @RequestParam String salesPlanDate) {
