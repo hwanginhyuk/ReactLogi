@@ -12,7 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/hr/*")
 public class MemberLogoutController {
-	
+
+    // 🍾 로그아웃
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
     public ModelAndView LogOut(HttpServletRequest request, HttpServletResponse response) {
 

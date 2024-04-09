@@ -33,6 +33,7 @@ public class EmpController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 json 변환
 
+	// 🧑‍💼 사원정보 - 사원전체조회
 	@RequestMapping(value="/emp/alllist", method=RequestMethod.GET)
 	public ModelMap searchAllEmpList(HttpServletRequest request, HttpServletResponse response) {
 		String searchCondition = request.getParameter("searchCondition");
@@ -74,6 +75,7 @@ public class EmpController {
 		return map;
 	}
 
+	// 🧑‍💼 사원정보 - 사원조회
 	@RequestMapping(value="/emp/list", method=RequestMethod.GET)
 	public ModelMap searchEmpInfo(HttpServletRequest request, HttpServletResponse response) {
 		String companyCode = request.getParameter("companyCode");
@@ -94,6 +96,7 @@ public class EmpController {
 		return map;
 	}
 
+	// 🧑‍💼 사원정보 - 사원중복체크
 	@RequestMapping(value="/emp/userid-duplication", method=RequestMethod.GET)
 	public ModelMap checkUserIdDuplication(HttpServletRequest request, HttpServletResponse response) {
 		String companyCode = request.getParameter("companyCode");
@@ -113,6 +116,7 @@ public class EmpController {
 		return map;
 	}
 
+	// 🧑‍💼 사원정보 - 코드중복체크
 	@RequestMapping(value="/emp/code-duplication", method=RequestMethod.GET)
 	public ModelMap checkEmpCodeDuplication(HttpServletRequest request, HttpServletResponse response) {
 		String companyCode = request.getParameter("companyCode");
@@ -132,6 +136,7 @@ public class EmpController {
 		return map;
 	}
 
+	// 🧑‍💼 사원정보 - 사원코드생성
 	@RequestMapping(value="/emp/newempcode", method=RequestMethod.GET)
 	public ModelMap getNewEmpCode(HttpServletRequest request, HttpServletResponse response) {
 		String companyCode = request.getParameter("companyCode");
@@ -150,8 +155,8 @@ public class EmpController {
 		}
 		return map;
 	}
-	
-	
+
+	// 🧑‍💼 사원정보 - 사원 batchList
 	@RequestMapping(value="/emp/batch", method=RequestMethod.POST)
 	public ModelMap batchListProcess(HttpServletRequest request, HttpServletResponse response) {
 		String batchList = request.getParameter("batchList");
