@@ -30,7 +30,9 @@ public class EstimateController {
 	ModelMap map=null;
 
 	// GSON 라이브러리
-	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 json 변환
+	// 속성값이 null 인 속성도 json 변환
+	private static Gson gson = new GsonBuilder().serializeNulls().create();
+
 
 	// 🚩 견적조회
 	@RequestMapping(value="/estimate/list", method=RequestMethod.GET)
