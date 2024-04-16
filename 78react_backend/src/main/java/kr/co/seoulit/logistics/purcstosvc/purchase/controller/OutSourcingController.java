@@ -23,7 +23,6 @@ public class OutSourcingController {
 
 	ModelMap map = null;
 
-	// 🚩 외주발주 - 조회
 	@RequestMapping(value="/outsourcing/list" , method=RequestMethod.GET)
 	public ModelMap searchOutSourcingList(HttpServletRequest request, HttpServletResponse response) {
 		String fromDate = request.getParameter("fromDate");
