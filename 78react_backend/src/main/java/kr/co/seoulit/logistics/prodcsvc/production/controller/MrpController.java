@@ -34,6 +34,7 @@ public class MrpController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
 
+	// 🏭MRP - MRP 조회
 	@RequestMapping(value="/mrp/list", method=RequestMethod.GET)
 	public ModelMap getMrpList(HttpServletRequest request, HttpServletResponse response) {
 		String mrpGatheringStatusCondition = request.getParameter("mrpGatheringStatusCondition");
@@ -64,7 +65,7 @@ public class MrpController {
 		return map;
 	}
 
-	//Mrp - Mrp 모의전개
+	// 🏭MRP - MRP 모의전개
 	@RequestMapping(value="/openMrp", method=RequestMethod.GET)
 	public ModelMap openMrp(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("request.getParameter(\"mpsNoListStr\") = " + request.getParameter("mpsNoListStr"));
@@ -87,26 +88,7 @@ public class MrpController {
 		return map;
 	}
 
-//	@RequestMapping(value="/mrp/open", method=RequestMethod.GET)
-//	public ModelMap openMrp(HttpServletRequest request, HttpServletResponse response) {
-//		String mpsNoListStr = request.getParameter("mpsNoList");
-//		map = new ModelMap();
-//		try {
-//			ArrayList<String> mpsNoArr = gson.fromJson(mpsNoListStr,
-//					new TypeToken<ArrayList<String>>() { }.getType());
-//			HashMap<String, Object> mrpMap = productionService.openMrp(mpsNoArr);
-//
-//			map.put("gridRowJson", mrpMap.get("result"));
-//			map.put("errorCode", mrpMap.get("errorCode"));
-//			map.put("errorMsg", mrpMap.get("errorMsg"));
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
-
+	// 🏭MRP - MRP 등록
 	@RequestMapping(value="/mrp", method=RequestMethod.POST)
 	public ModelMap registerMrp(HttpServletRequest request, HttpServletResponse response) {
 		String batchList = request.getParameter("batchList");
@@ -135,7 +117,7 @@ public class MrpController {
 		return map;
 	}
 
-
+	// 🏭MRP
 	@RequestMapping(value="/mrp/gathering-list", method=RequestMethod.GET)
 	public ModelMap getMrpGatheringList(HttpServletRequest request, HttpServletResponse response) {
 		String mrpNoList = request.getParameter("mrpNoList");
@@ -159,7 +141,7 @@ public class MrpController {
 	}
 
 
-
+	// 🏭MRP
 	@RequestMapping(value="/mrp/gathering", method=RequestMethod.POST)
 	public ModelMap registerMrpGathering(HttpServletRequest request, HttpServletResponse response) throws JsonProcessingException {
 		String mrpGatheringRegisterDate = request.getParameter("mrpGatheringRegisterDate");
@@ -205,30 +187,7 @@ public class MrpController {
 		}
 		return map;
 	}
-
-//	@RequestMapping(value="/mrp/gathering", method=RequestMethod.POST)
-//	public ModelMap registerMrpGathering(HttpServletRequest request, HttpServletResponse response) {
-//		String mrpGatheringRegisterDate = request.getParameter("mrpGatheringRegisterDate");
-//		String mrpNoList = request.getParameter("mrpNoList");
-//		String mrpNoAndItemCodeList = request.getParameter("mrpNoAndItemCodeList");
-//		map = new ModelMap();
-//		try {
-//			ArrayList<String> mrpNoArr = gson.fromJson(mrpNoList,
-//					new TypeToken<ArrayList<String>>() { }.getType());
-//			HashMap<String, String> mrpNoAndItemCodeMap =  gson.fromJson(mrpNoAndItemCodeList, //mprNO : ItemCode
-//					new TypeToken<HashMap<String, String>>() { }.getType());
-//			HashMap<String, Object> resultMap  = productionService.registerMrpGathering(mrpGatheringRegisterDate, mrpNoArr,mrpNoAndItemCodeMap);
-//
-//			map.put("result", resultMap);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
+	
 
 	@RequestMapping(value="/mrp/mrpgathering/list", method=RequestMethod.GET)
 	public ModelMap searchMrpGathering(HttpServletRequest request, HttpServletResponse response) {

@@ -35,7 +35,7 @@ public class MpsController {
 
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
 
-	//주생산계획(MPS) - MPS 조회
+	// 🏭주생산계획(MPS) - MPS 조회
 	@RequestMapping(value="/mps/list", method=RequestMethod.GET)
 	@Operation(summary = "MPS 조회", description = "MPS 조회한다.", tags = {"MPS", })
 	public ModelMap searchMpsInfo(HttpServletRequest request, HttpServletResponse response) {
@@ -58,7 +58,7 @@ public class MpsController {
 	}
 
 
-	//주생산계획(MPS) - MPS등록 가능 조회
+	// 🏭주생산계획(MPS) - MPS등록 가능 조회
 	@Operation(summary = "MPS등록 가능 조회", description = "MPS등록 가능 조회한다.", tags = {"MPS", })
 	@RequestMapping(value="/mps/contractdetail-available", method=RequestMethod.GET)
 	public ModelMap searchContractDetailListInMpsAvailable(HttpServletRequest request,
@@ -82,7 +82,7 @@ public class MpsController {
 	}
 
 
-	//공정 계획 관리 - 수주상세조회   <<< MRP에서 MPS 조회
+	// 🏭공정 계획 관리 - 수주상세조회   <<< MRP에서 MPS 조회
 	@Operation(summary = "M수주상세조회", description = "수주상세조회한다.", tags = {"MPS", })
 	@RequestMapping(value="/mps/contractdetail-processplanavailable", method=RequestMethod.GET)
 	public ModelMap searchContractDetailListInProcessPlanAvailable(HttpServletRequest request,
@@ -128,7 +128,7 @@ public class MpsController {
 	}
 
 
-	//	주생산계획(MPS) - MPS 등록
+	// 🏭주생산계획(MPS) - MPS 등록
 	@Operation(summary = "MPS 등록", description = "MPS 등록한다.", tags = {"MPS", })
 	@RequestMapping(value="/mps/contractdetail", method=RequestMethod.POST)   // 앞단에서는 post로 데이터 보냄!!!
 	public ModelMap convertContractDetailToMps(@RequestBody ContractDetailInMpsAvailableTO batchList) {
@@ -150,53 +150,6 @@ public class MpsController {
 		}
 		return map;
 	}
-
-
-	//주생산계획(MPS) - MPS 등록
-//	@RequestMapping(value="/mps/contractdetail", method=RequestMethod.POST)   // 앞단에서는 post로 데이터 보냄!!!
-//	public ModelMap convertContractDetailToMps(@RequestBody HashMap<String, ArrayList<ContractDetailInMpsAvailableTO>> batchList) {
-//
-//		map = new ModelMap();
-//
-//		ArrayList<ContractDetailInMpsAvailableTO> contractDetailInMpsAvailableList = batchList.get("batchList");
-//
-//		try {
-//
-//			HashMap<String, Object> resultMap =
-//					productionService.convertContractDetailToMps(contractDetailInMpsAvailableList);
-//
-//			map.put("result", resultMap);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
-
-//	//주생산계획(MPS) - MPS 등록
-//	@RequestMapping(value="mps/contractdetail", method=RequestMethod.PUT)   // 앞단에서는 post로 데이터 보냄!!!
-//	public ModelMap convertContractDetailToMps(HttpServletRequest request, HttpServletResponse response) {
-//		String batchList = request.getParameter("batchList");
-//		map = new ModelMap();
-//		ContractDetailInMpsAvailableTO contractDetailInMpsAvailableList = gson.fromJson(batchList,
-//				new TypeToken<ArrayList<ContractDetailInMpsAvailableTO>>() {}.getType());
-//		try {
-//			HashMap<String, Object> resultMap = productionService
-//					.convertContractDetailToMps(contractDetailInMpsAvailableList);
-//
-//			map.put("result", resultMap);
-//			map.put("errorCode", 1);
-//			map.put("errorMsg", "성공");
-//		} catch (Exception e1) {
-//			e1.printStackTrace();
-//			map.put("errorCode", -1);
-//			map.put("errorMsg", e1.getMessage());
-//		}
-//		return map;
-//	}
 
 	@Operation(summary = "mps 계획수정", description = "mps 계획수정한다.", tags = {"MPS", })
 	@RequestMapping(value="/mps/salesplan", method=RequestMethod.PUT)
