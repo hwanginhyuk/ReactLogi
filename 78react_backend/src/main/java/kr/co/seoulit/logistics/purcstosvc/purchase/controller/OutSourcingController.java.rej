@@ -1,0 +1,9 @@
+diff a/78react_backend/src/main/java/kr/co/seoulit/logistics/purcstosvc/purchase/controller/OutSourcingController.java b/78react_backend/src/main/java/kr/co/seoulit/logistics/purcstosvc/purchase/controller/OutSourcingController.java	(rejected hunks)
+@@ -23,6 +23,7 @@
+ 
+ 	ModelMap map = null;
+ 
++	// 🚩 외주발주 - 조회
+ 	@RequestMapping(value="/outsourcing/list" , method=RequestMethod.GET)
+ 	public ModelMap searchOutSourcingList(HttpServletRequest request, HttpServletResponse response) {
+ 		String fromDate = request.getParameter("fromDate");
