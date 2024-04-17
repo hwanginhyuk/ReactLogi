@@ -187,8 +187,8 @@ public class MrpController {
 		}
 		return map;
 	}
-	
 
+	// logi/mrp/api/index.js에서 엑시오스를 이용해서 보낸다
 	@RequestMapping(value="/mrp/mrpgathering/list", method=RequestMethod.GET)
 	public ModelMap searchMrpGathering(HttpServletRequest request, HttpServletResponse response) {
 		String searchDateCondition = request.getParameter("searchDateCondition");
