@@ -36,6 +36,7 @@ public class MpsController {
 	private static Gson gson = new GsonBuilder().serializeNulls().create();
 
 	// 🏭주생산계획(MPS) - MPS 조회
+	// axios에 params로 조회한다
 	@RequestMapping(value="/mps/list", method=RequestMethod.GET)
 	@Operation(summary = "MPS 조회", description = "MPS 조회한다.", tags = {"MPS", })
 	public ModelMap searchMpsInfo(HttpServletRequest request, HttpServletResponse response) {
@@ -130,7 +131,7 @@ public class MpsController {
 
 	// 🏭주생산계획(MPS) - MPS 등록
 	@Operation(summary = "MPS 등록", description = "MPS 등록한다.", tags = {"MPS", })
-	@RequestMapping(value="/mps/contractdetail", method=RequestMethod.POST)   // 앞단에서는 post로 데이터 보냄!!!
+	@RequestMapping(value="/mps/contractdetail", method=RequestMethod.POST)   // 앞단에서는 post로 데이터 보냄
 	public ModelMap convertContractDetailToMps(@RequestBody ContractDetailInMpsAvailableTO batchList) {
 		System.out.println(batchList);
 		map = new ModelMap();
