@@ -20,5 +20,4 @@ public class OpenMrpTO extends BaseTO {
 	private String caculatedAmount;
 	private int requiredAmount;
 	private String unitOfMrp;
-
 }
