@@ -26,7 +26,7 @@ public class SalesPlanController {
     @Autowired
     private SalesService salesService;
 
-    private ModelMap modelMap = new ModelMap();
+    ModelMap modelMap = null;
 
     // 😒 판매계획 - 등록
     @RequestMapping(value="/save" , method= RequestMethod.POST)
