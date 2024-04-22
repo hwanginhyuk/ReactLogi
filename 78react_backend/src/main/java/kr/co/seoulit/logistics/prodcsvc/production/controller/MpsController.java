@@ -59,6 +59,7 @@ public class MpsController {
 	}
 
 
+	// mpsAxios에서 넘어오는 startDate, endDate, searchCondition=contractDate를 request.getParameter로 각 변수로 뽑아낸다
 	// 🏭주생산계획(MPS) - MPS등록 가능 조회
 	@Operation(summary = "MPS등록 가능 조회", description = "MPS등록 가능 조회한다.", tags = {"MPS", })
 	@RequestMapping(value="/mps/contractdetail-available", method=RequestMethod.GET)
@@ -69,8 +70,13 @@ public class MpsController {
 		String endDate = request.getParameter("endDate");
 		map = new ModelMap();
 		try {
+			// 뽑아낸 변수값을 가지고 서비스단으로 이동한다
+			// 변수값이 contractDetailInMpsAvailableList인것은 의도적인 것
+			// mpsAxios에서 사용한 함수값이 searchContractDetailInMpsAvailable() 이기에
+			// 코드의 가시성 문제를 해결하기 위함
 			ArrayList<ContractDetailInMpsAvailableTO> contractDetailInMpsAvailableList =
 					productionService.getContractDetailListInMpsAvailable(searchCondition, startDate, endDate);
+			// "gridRowJson" 은 setContractList(data.gridRowJson)에서 보이듯 일반적으로 그리드 형식의 데이터를 표현한다
 			map.put("gridRowJson", contractDetailInMpsAvailableList);
 			map.put("errorCode", 1);
 			map.put("errorMsg", "성공");

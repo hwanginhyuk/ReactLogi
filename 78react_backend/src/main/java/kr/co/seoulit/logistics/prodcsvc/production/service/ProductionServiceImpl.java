@@ -49,6 +49,8 @@ public class ProductionServiceImpl implements ProductionService {
 	}
 
 
+	// mps 등록가능조회
+	// 흔히 아는 서비스Impl의 구조
 	@Override
 	public ArrayList<ContractDetailInMpsAvailableTO> getContractDetailListInMpsAvailable(String searchCondition,
 																						 String startDate, String endDate) {
@@ -61,6 +63,7 @@ public class ProductionServiceImpl implements ProductionService {
 		map.put("startDate", startDate);
 		map.put("endDate", endDate);
 
+		// 파라매터로 map을 넘겨주면서 mybatis에 parameterType="map" 으로 지정해주었다
 		contractDetailInMpsAvailableList = contractMapper.selectContractDetailListInMpsAvailable(map);
 
 		return contractDetailInMpsAvailableList;
@@ -184,6 +187,10 @@ public class ProductionServiceImpl implements ProductionService {
 //
 //	}
 
+	// mps 등록
+	// 컨트롤러에서 넘어온 newData가 newMpsBean 변수에 담긴다.
+	// newMpsBean는 MpsTO에 있는 값들이다
+	// batchMpsListProcess메서드에 newMpsBean 값을 넘겨준다
 	@Override
 	public HashMap<String, Object> convertSalesPlanToMps(
 			ArrayList<SalesPlanInMpsAvailableTO> salesPlanInMpsAvailableList) {
@@ -221,6 +228,9 @@ public class ProductionServiceImpl implements ProductionService {
 
 	}
 
+	// 위에서 batchMpsListProcess메서드에 값을 담아 mpsTOList를 가져와 for문으로 해당값을 뽑아낸다
+	// 뽑아낸 값을 swich문으로 case 별로 INSERT, UPDATE, DELETE를 호출하여
+	// mapper에 연결한다. 이후 쿼리문으로 해당 작업을 실행하는 구조이다
 	@Override
 	public HashMap<String, Object> batchMpsListProcess(ArrayList<MpsTO> mpsTOList) {
 
