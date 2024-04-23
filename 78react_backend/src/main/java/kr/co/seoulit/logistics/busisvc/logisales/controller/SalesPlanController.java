@@ -20,7 +20,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/logi/sales/*")
 
+<<<<<<< HEAD
 // 미구현
+=======
+// 🚩판매계획 컨트롤러
+>>>>>>> 물류정보서비스
 public class SalesPlanController {
 
     @Autowired
@@ -69,7 +73,7 @@ public class SalesPlanController {
 
             HashMap<String, Object> resultList = salesService.removeSales(no);
 
-            // modelMap.put("result", resultList);
+             modelMap.put("result", resultList);
             modelMap.put("errorCode", 1);
             modelMap.put("errorMsg", "성공");
 

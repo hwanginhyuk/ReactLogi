@@ -15,7 +15,7 @@ public interface SalesService {
 	// SalesPlanApplicationServiceImpl
 	public ArrayList<ContractInfoTO> getDeliverableContractList(HashMap<String,String> ableSearchConditionInfo);
 
-	public ArrayList<SalesPlanTO> getSalesPlanList(String dateSearchCondition, String startDate, String endDate);
+	public ArrayList<SalesPlanTO> getSalesPlanList(String salesPlanDate, String startDate, String endDate);
 
 //	public HashMap<String, Object> batchSalesPlanListProcess(ArrayList<SalesPlanTO> salesPlanTOList);
 
