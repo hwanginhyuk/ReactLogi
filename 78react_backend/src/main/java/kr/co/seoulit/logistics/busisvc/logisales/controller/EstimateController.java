@@ -30,8 +30,11 @@ public class EstimateController {
 	ModelMap map=null;
 
 	// GSON 라이브러리
-	private static Gson gson = new GsonBuilder().serializeNulls().create(); // 속성값이 null 인 속성도 json 변환
+	// 속성값이 null 인 속성도 json 변환
+	private static Gson gson = new GsonBuilder().serializeNulls().create();
 
+
+	// 🚩 견적조회
 	@RequestMapping(value="/estimate/list", method=RequestMethod.GET)
 	public ModelMap searchEstimateInfo(
 			@RequestParam("startDate") String startDate,
@@ -55,6 +58,7 @@ public class EstimateController {
 
 	}
 
+	// 🚩 견적조회 - 견적상세조회
 	@RequestMapping(value="/estimatedetail/list", method=RequestMethod.GET)
 	public ModelMap searchEstimateDetailInfo(@RequestParam("estimateNo") String estimateNo) {
 
@@ -74,11 +78,11 @@ public class EstimateController {
 		return map;
 	}
 
+	// 🚩 견적등록
 	@RequestMapping(value="/estimate/new", method=RequestMethod.POST)
 	public ModelMap addNewEstimate(
 			@RequestBody Map<String, Object> params
 	) {
-		//EstimateTO newEstimateTO = gson.fromJson(newEstimateInfo, EstimateTO.class);
 
 		map = new ModelMap();
 		ObjectMapper mapper = new ObjectMapper();
@@ -111,6 +115,8 @@ public class EstimateController {
 		}
 		return map;
 	}
+
+	// 🚩 견적삭제 - 미구현
 	@RequestMapping(value="/estimate", method=RequestMethod.DELETE)
 	public ModelMap deleteEstimateInfo(
 			@RequestParam("estimateNo") String estimateNo,
@@ -134,10 +140,10 @@ public class EstimateController {
 		return map;
 	}
 
+	// 🚩 견적상세기입란- 견적상세추가
 	@RequestMapping(value="/estimatedetail/batch", method=RequestMethod.POST)
 	public ModelMap batchListProcess(@RequestParam("batchList") String batchList) {
-
-		//String estimateNo = request.getParameter("estimateNo");
+		
 		ArrayList<EstimateDetailTO> estimateDetailTOList = gson.fromJson(batchList,
 				new TypeToken<ArrayList<EstimateDetailTO>>() {}.getType());
 

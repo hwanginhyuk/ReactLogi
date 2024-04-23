@@ -23,6 +23,7 @@ public class ProcessPlanController {
 
     private static Gson gson = new GsonBuilder().serializeNulls().create();
 
+    // 😭 판매계획관리 - 페이지, 기능 미구현
     @RequestMapping(value="/processplan/new" , method= RequestMethod.POST)
     public ModelMap processPlan(@RequestParam("batchList") String batchList) {
         System.out.println(batchList);

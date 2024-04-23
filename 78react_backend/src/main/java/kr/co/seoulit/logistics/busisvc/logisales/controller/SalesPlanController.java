@@ -20,13 +20,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/logi/sales/*")
 
+// 🚩판매계획 컨트롤러
 public class SalesPlanController {
 
     @Autowired
     private SalesService salesService;
 
-    private ModelMap modelMap = new ModelMap();
+    ModelMap modelMap = null;
 
+    // 😒 판매계획 - 등록
     @RequestMapping(value="/save" , method= RequestMethod.POST)
     public ModelMap saleSave(@RequestBody Map<String, Object> params) {
         ObjectMapper mapper = new ObjectMapper();
@@ -50,7 +52,7 @@ public class SalesPlanController {
         return modelMap;
     }
 
-
+    // 😒 판매계획 - 삭제
     @RequestMapping(value="/remove", method=RequestMethod.DELETE)
     public ModelMap deleteSalesInfo(
             @RequestBody Map<String, Object> params
@@ -67,7 +69,7 @@ public class SalesPlanController {
 
             HashMap<String, Object> resultList = salesService.removeSales(no);
 
-            // modelMap.put("result", resultList);
+             modelMap.put("result", resultList);
             modelMap.put("errorCode", 1);
             modelMap.put("errorMsg", "성공");
 
@@ -79,7 +81,7 @@ public class SalesPlanController {
         return modelMap;
     }
 
-
+    // 😒 판매계획 - 조회
     @RequestMapping("/searchSalesPlan")
     public ModelMap searchSalesPlanInfo(@RequestParam String startDate, @RequestParam String endDate,
                                         @RequestParam String salesPlanDate) {
