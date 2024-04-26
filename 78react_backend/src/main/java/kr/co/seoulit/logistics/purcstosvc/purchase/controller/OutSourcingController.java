@@ -23,17 +23,19 @@ public class OutSourcingController {
 
 	ModelMap map = null;
 
+	/*
+	*	[78inhyuk]
+	*	외주발주조회기능 구현 완료
+	*/
+	// 🚩 외주발주 - 조회
 	@RequestMapping(value="/outsourcing/list" , method=RequestMethod.GET)
 	public ModelMap searchOutSourcingList(HttpServletRequest request, HttpServletResponse response) {
 		String fromDate = request.getParameter("fromDate");
 		String toDate = request.getParameter("toDate");
-		String customerCode = request.getParameter("customerCode");
-		String itemCode = request.getParameter("itemCode");
-		String materialStatus = request.getParameter("materialStatus");
 		map = new ModelMap();
 		
 		try {
-			ArrayList<OutSourcingTO> outSourcingList = purchaseService.searchOutSourcingList(fromDate,toDate,customerCode,itemCode,materialStatus);
+			ArrayList<OutSourcingTO> outSourcingList = purchaseService.searchOutSourcingList(fromDate,toDate);
 			map.put("outSourcingList", outSourcingList);
 			map.put("errorCode", 1);
 			map.put("errorMsg", "성공");
@@ -45,3 +47,4 @@ public class OutSourcingController {
 		return map;
 	}
 }
+

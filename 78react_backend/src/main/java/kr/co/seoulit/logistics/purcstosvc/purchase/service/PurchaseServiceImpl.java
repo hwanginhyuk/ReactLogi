@@ -21,8 +21,7 @@ public class PurchaseServiceImpl implements PurchaseService{
 	private OrderMapper orderMapper;
 	
 	@Override
-	public ArrayList<OutSourcingTO> searchOutSourcingList(String fromDate, String toDate, String customerCode,
-			String itemCode, String materialStatus) {
+	public ArrayList<OutSourcingTO> searchOutSourcingList(String fromDate, String toDate) {
 
 		ArrayList<OutSourcingTO> OutSourcingList = null;
 		
@@ -30,9 +29,6 @@ public class PurchaseServiceImpl implements PurchaseService{
 
 		map.put("fromDate", fromDate);
 		map.put("toDate", toDate);
-		map.put("customerCode", customerCode);
-		map.put("itemCode", itemCode);
-		map.put("materialStatus", materialStatus);
 
 		OutSourcingList = outSourcingMapper.selectOutSourcingList(map);
 

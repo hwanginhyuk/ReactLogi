@@ -10,7 +10,7 @@ import kr.co.seoulit.logistics.purcstosvc.purchase.to.OutSourcingTO;
 
 public interface PurchaseService {
 	
-	public ArrayList<OutSourcingTO> searchOutSourcingList(String fromDate,String toDate,String customerCode,String itemCode,String materialStatus);
+	public ArrayList<OutSourcingTO> searchOutSourcingList(String fromDate,String toDate);
 	
 	public HashMap<String, Object> getOrderList(String startDate, String endDate);
 	
